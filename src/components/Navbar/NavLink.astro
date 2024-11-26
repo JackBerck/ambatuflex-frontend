@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  addClass?: string;
+}
+
+const { href, addClass } = Astro.props;
+---
+
+<li>
+  <a
+    href={href}
+    class={`block py-2 px-3 rounded text-light-base ${addClass}`}
+    aria-current="page"><slot /></a
+  >
+</li>

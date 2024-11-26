@@ -1,0 +1,21 @@
+---
+import FooterLink from "./FooterLink.astro";
+import SocialMediaFooterLink from "./SocialMediaFooterLink.astro";
+---
+
+<section
+  id="footer"
+  class="bg-dark-base text-light-base pt-2 pb-4 section-padding-x footer-font-size shadow-purple-base shadow-2xl"
+>
+  <div class="max-w-screen-xl container">
+    <ul class="flex flex-wrap justify-center gap-4 items-center">
+      <FooterLink href="/">Home</FooterLink>
+      <FooterLink href="/tentang-kami">Tentang Kami</FooterLink>
+      <FooterLink href="/hubungi-kami">Hubungi Kami</FooterLink>
+    </ul>
+    <SocialMediaFooterLink />
+    <p class="mt-4 leading-6 text-center text-gray-300">
+      &#169; {new Date().getFullYear()} AmbatuFlex, Inc. All rights reserved.
+    </p>
+  </div>
+</section>
