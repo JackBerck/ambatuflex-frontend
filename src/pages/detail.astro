@@ -84,7 +84,7 @@ const comments = {
             <img
               src="/images/profiles/mike-shinoda.jpg"
               alt="Mike Shinoda Profile Photo"
-              class="w-12 aspect-square object-cover rounded-full"
+              class="w-8 md:w-10 aspect-square object-cover rounded-full"
             />
             <div class="">
               <p class="normal-font-size">Mike Shinoda</p>
@@ -124,7 +124,7 @@ const comments = {
               <img
                 src="/images/profiles/brad-traversy.jpeg"
                 alt="Brad Traversy Profile Photo"
-                class="w-12 h-12 aspect-square object-cover rounded-full"
+                class="w-10 h-10 aspect-square object-cover rounded-full"
               />
               <div class="w-full">
                 <textarea
@@ -143,12 +143,12 @@ const comments = {
           <div class="flex gap-4 flex-col">
             {
               comments.data.map((comment) => (
-                <div class="">
-                  <div class="flex items-center gap-2">
+                <div class="shadow-purple-base shadow-sm p-2 rounded-sm">
+                  <div class="flex items-center gap-2 mb-2">
                     <img
                       src={comment.photo}
                       alt={`${comment.name} Profile Photo`}
-                      class="w-12 aspect-square object-cover rounded-full"
+                      class="w-8 md:w-10 aspect-square object-cover rounded-full"
                     />
                     <div class="">
                       <p class="normal-font-size">{comment.name}</p>
@@ -156,7 +156,7 @@ const comments = {
                     </div>
                   </div>
                   <div class="">
-                    <p class="normal-font-size">{comment.comment}</p>
+                    <p class="normal-font-size mb-1">{comment.comment}</p>
                     <p class="small-font-size">{comment.date}</p>
                   </div>
                 </div>

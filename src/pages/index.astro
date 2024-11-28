@@ -97,21 +97,21 @@ const posts = {
                   <img
                     src={post.post.image}
                     alt={post.post.title}
-                    class="rounded-md w-full aspect-video object-cover"
+                    class="rounded-md w-full aspect-video object-cover mb-2"
                   />
                 </a>
-                <div class="flex gap-2 items-center">
+                <div class="flex gap-2 items-center mb-2">
                   <img
                     src={post.user.image}
                     alt={`${post.user.name} Photo Profile`}
-                    class="w-10 aspect-square rounded-full object-cover"
+                    class="w-8 md:w-10 aspect-square rounded-full object-cover"
                   />
                   <div class="">
                     <h6 class="normal-font-size font-bold">{post.user.name}</h6>
                     <p class="small-font-size">{post.user.role}</p>
                   </div>
                 </div>
-                <div class="">
+                <div class="mb-2">
                   <a href="">
                     <h2 class="normal-font-size font-bold title_card-post">
                       {post.post.title}
