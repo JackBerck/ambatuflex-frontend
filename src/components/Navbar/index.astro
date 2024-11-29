@@ -1,7 +1,10 @@
 ---
 import Navlink from "./NavLink.astro";
 ---
-<nav class="shadow-purple-base shadow-md bg-dark-base fixed top-0 w-full z-[999]">
+
+<nav
+  class="shadow-purple-base shadow-md bg-dark-base fixed top-0 w-full z-[999]"
+>
   <div
     class="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4 xl:px-0 md:py-4"
   >
@@ -9,11 +12,7 @@ import Navlink from "./NavLink.astro";
       href="https://flowbite.com/"
       class="flex items-center space-x-3 rtl:space-x-reverse"
     >
-      <img
-        src="/favicon.png"
-        class="h-8"
-        alt="AmbatuFlex Logo"
-      />
+      <img src="/favicon.png" class="h-8" alt="AmbatuFlex Logo" />
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap text-light-base"
         >AmbatuFlex</span
@@ -50,8 +49,23 @@ import Navlink from "./NavLink.astro";
         <Navlink href="/">Beranda</Navlink>
         <Navlink href="/about-us">Tentang Kami</Navlink>
         <Navlink href="/signin" addClass="bg-purple-base">Masuk</Navlink>
-        <Navlink href="/signup" addClass="ring-1 ring-purple-base">Daftar</Navlink
+        <Navlink href="/signup" addClass="ring-1 ring-purple-base"
+          >Daftar</Navlink
         >
+        <li>
+          <a
+            href="/profile"
+            class="rounded text-light-base flex items-center"
+            aria-current="page"
+          >
+            <img
+              src="/images/profiles/rusdi-jawir.jpeg"
+              alt="Rusdi Jawi"
+              class="w-10 object-cover aspect-square rounded-full"
+            />
+            <span class="block md:hidden ml-2">Rusdi Jawi</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
