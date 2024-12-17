@@ -62,7 +62,7 @@ const comments = {
   >
     <div class="container max-w-screen-sm lg:max-w-screen-lg">
       <div class="flex flex-col gap-4">
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper max-w-xl">
           <div class="swiper-wrapper">
             {
               postImages.map((image) => (
@@ -198,15 +198,15 @@ const comments = {
   </section>
 </Layout>
 <script>
+  import Swiper from "swiper/bundle";
+  import "swiper/bundle";
+
   const swiper = new Swiper(".mySwiper", {
     pagination: {
       clickable: true,
       el: ".swiper-pagination",
     },
     loop: true,
-    autoplay: {
-      delay: 2500,
-    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -223,7 +223,6 @@ const comments = {
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
