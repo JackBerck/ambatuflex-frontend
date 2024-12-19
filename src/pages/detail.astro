@@ -62,24 +62,7 @@ const comments = {
   >
     <div class="container max-w-screen-sm lg:max-w-screen-lg">
       <div class="flex flex-col gap-4">
-        <div class="swiper mySwiper max-w-xl">
-          <div class="swiper-wrapper">
-            {
-              postImages.map((image) => (
-                <div class="swiper-slide">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    class="w-full object-cover rounded-lg"
-                  />
-                </div>
-              ))
-            }
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+        <!-- Content Start -->
         <div class="">
           <div class="flex justify-end gap-4">
             <div class="flex items-center gap-2">
@@ -145,58 +128,124 @@ const comments = {
             memastikan bahwa basis kode terdokumentasi dengan baik dan lebih
             mudah untuk dipelihara.
           </p>
-        </div>
-        <div class="">
-          <h2 class="subtitle-font-size font-bold mb-2">Komentar</h2>
-          <form action="" class="mb-4">
-            <div class="flex gap-4 mb-4">
-              <img
-                src="/images/profiles/brad-traversy.jpeg"
-                alt="Brad Traversy Profile Photo"
-                class="w-10 h-10 aspect-square object-cover rounded-full"
-              />
-              <div class="w-full">
-                <textarea
-                  class="bg-light-base focus:outline-none focus:shadow-outline border border-purple-base rounded py-2 px-4 block w-full appearance-none"
-                  rows="3"
-                  placeholder="Tulis komentar..."></textarea>
-              </div>
-            </div>
-            <button
-              type="submit"
-              class="bg-purple-base text-light-base font-bold py-2 px-4 w-full rounded hover:bg-purple-800"
+          <div class="flex items-center gap-2 mt-4">
+            <p
+              class="bg-light-base text-dark-base small-font-size rounded-sm px-2 py-1 font-bold"
             >
-              Kirim
-            </button>
-          </form>
-          <div class="flex gap-4 flex-col">
-            {
-              comments.data.map((comment) => (
-                <div class="shadow-purple-base shadow-sm p-2 rounded-sm">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img
-                      src={comment.photo}
-                      alt={`${comment.name} Profile Photo`}
-                      class="w-8 md:w-10 aspect-square object-cover rounded-full"
-                    />
-                    <div class="">
-                      <p class="normal-font-size">{comment.name}</p>
-                      <p class="small-font-size">{comment.role}</p>
-                    </div>
-                  </div>
-                  <div class="">
-                    <p class="normal-font-size mb-1">{comment.comment}</p>
-                    <p class="small-font-size">{comment.date}</p>
-                  </div>
-                </div>
-              ))
-            }
+              Web Development
+            </p>
           </div>
         </div>
+        <!-- Content End -->
+        <!-- Photos Start -->
+        <div class="flex flex-col">
+          {
+            postImages.length === 1 ? (
+              // Tampilan jika hanya ada satu gambar
+              <div class="w-full">
+                <img
+                  src={postImages[0].src}
+                  alt={postImages[0].alt}
+                  class="w-full h-auto rounded-lg object-cover aspect-video max-h-[256px]"
+                />
+              </div>
+            ) : (
+              // Grid layout untuk beberapa gambar
+              <div
+                class={`grid ${
+                  postImages.length === 2
+                    ? "grid-cols-2"
+                    : postImages.length === 3
+                      ? "grid-cols-2"
+                      : "grid-cols-2 lg:grid-cols-4"
+                } gap-2`}
+              >
+                {postImages.map((image, index) => (
+                  <div
+                    class={`${
+                      postImages.length === 3 && index === 2
+                        ? "col-span-2"
+                        : "col-span-1"
+                    } relative overflow-hidden`}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      class="w-full h-full object-cover rounded-lg aspect-video max-h-[256px]"
+                    />
+                  </div>
+                ))}
+              </div>
+            )
+          }
+        </div>
       </div>
+      <!-- Photos End -->
+      <!-- Comments Start -->
+      <div class="">
+        <h2 class="subtitle-font-size font-bold mb-2">Komentar</h2>
+        <form action="" class="mb-4">
+          <div class="flex gap-4 mb-4">
+            <img
+              src="/images/profiles/brad-traversy.jpeg"
+              alt="Brad Traversy Profile Photo"
+              class="w-10 h-10 aspect-square object-cover rounded-full"
+            />
+            <div class="w-full">
+              <textarea
+                class="bg-light-base focus:outline-none focus:shadow-outline border border-purple-base rounded py-2 px-4 block w-full appearance-none"
+                rows="3"
+                placeholder="Tulis komentar..."></textarea>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="bg-purple-base text-light-base font-bold py-2 px-4 w-full rounded hover:bg-purple-800"
+          >
+            Kirim
+          </button>
+        </form>
+        <div class="flex gap-4 flex-col">
+          {
+            comments.data.map((comment) => (
+              <div class="shadow-purple-base shadow-sm p-2 rounded-sm relative">
+                <form action="">
+                  <button type="submit" class="absolute top-0 right-0 p-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="text-red-base w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 448 512"
+                    >
+                      <path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                    </svg>
+                  </button>
+                </form>
+                <div class="flex items-center gap-2 mb-2">
+                  <img
+                    src={comment.photo}
+                    alt={`${comment.name} Profile Photo`}
+                    class="w-8 md:w-10 aspect-square object-cover rounded-full"
+                  />
+                  <div class="">
+                    <p class="normal-font-size">{comment.name}</p>
+                    <p class="small-font-size">{comment.role}</p>
+                  </div>
+                </div>
+                <div class="">
+                  <p class="normal-font-size mb-1">{comment.comment}</p>
+                  <p class="small-font-size">{comment.date}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <!-- Comments End -->
     </div>
   </section>
 </Layout>
+
 <script>
   import Swiper from "swiper/bundle";
   import "swiper/bundle";
