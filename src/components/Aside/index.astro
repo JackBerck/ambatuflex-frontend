@@ -5,7 +5,7 @@ import AsideLink from "./AsideLink.astro";
 <!-- Tombol untuk aside -->
 <button
   id="asideToggle"
-  class="block md:hidden p-3 bg-purple-base text-light-base font-semibold absolute top-20 left-0 rounded-r-lg transform transition-transform"
+  class="block md:hidden p-3 bg-purple-base text-light-base font-semibold absolute top-20 left-0 rounded-r-lg transform transition-transform z-50"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +28,8 @@ import AsideLink from "./AsideLink.astro";
     <AsideLink href="/profile">Pengaturan Akun</AsideLink>
     <AsideLink href="/profile/liked-posts">Postingan yang Disukai</AsideLink>
     <AsideLink href="/profile/manage-posts">Kelola Postingan</AsideLink>
+    <AsideLink href="/profile/manage-posts-admin">Kelola Postingan Admin</AsideLink>
+    <AsideLink href="/profile/manage-users-admin">Kelola Pengguna Admin</AsideLink>
     <AsideLink
       href="/profile/keluar"
       addClass="bg-red-600 text-light-base rounded-lg"
